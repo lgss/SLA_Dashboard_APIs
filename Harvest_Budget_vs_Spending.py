@@ -34,5 +34,5 @@ def harvest_call(search):
 
 
 def lambda_handler(event, context):
-    search = event['multiValueQueryStringParameters']['search']
+    search = event['queryStringParameters']['search']
     return harvest_call(search)
