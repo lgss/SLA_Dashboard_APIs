@@ -1,6 +1,6 @@
 import json
 import os
-from botocore.vendored import requests
+import requests
 
 
 def respond(message):
