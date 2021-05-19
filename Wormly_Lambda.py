@@ -4,7 +4,7 @@ import os
 import urllib.parse
 from botocore.vendored import requests
 
-
+# Structuring the API response
 def respond(message):
     return {
             "isBase64Encoded": False,
@@ -13,7 +13,7 @@ def respond(message):
             "body": json.dumps(message)
         }
 
-
+# Get service uptime from wormly
 def wormly_uptime(hostid, startday, endday):
     key = os.getenv('APIkey')
     my_response = requests.get(
@@ -61,7 +61,7 @@ def wormly_uptime(hostid, startday, endday):
             'body': 'API Connection Error'
         }
 
-
+# Lambda entry point
 def lambda_handler(event, context):
     hosts = event['multiValueQueryStringParameters']['hostid']
     startday = urllib.parse.quote(event['queryStringParameters']['startday'])
